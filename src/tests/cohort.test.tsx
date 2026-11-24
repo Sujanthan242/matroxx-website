@@ -116,9 +116,10 @@ describe("Cohort page", () => {
   it("renders the team section with the room image and the six roles only", () => {
     render(<Cohort />);
 
-    // SectionHeading renders its label as a paragraph, not a heading
-    // (same as the Work page's "— The full case study" assertion).
-    expect(screen.getByText("— How we work")).toBeInTheDocument();
+    // SectionHeading is a real <h2> (Branch 7 a11y fix — it was a <p>).
+    expect(
+      screen.getByRole("heading", { level: 2, name: /How we work/ }),
+    ).toBeInTheDocument();
     expect(screen.getByText(COHORT_TEAM.body)).toBeInTheDocument();
     expect(screen.getByText(COHORT_TEAM.caption)).toBeInTheDocument();
 

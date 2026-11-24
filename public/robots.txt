@@ -1,0 +1,5 @@
+# Hand-maintained static robots file (ARCHITECTURE.md §2).
+User-agent: *
+Allow: /
+
+Sitemap: https://sujanthan242.github.io/matroxx-website/sitemap.xml

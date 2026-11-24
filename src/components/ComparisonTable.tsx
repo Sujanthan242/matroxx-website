@@ -12,7 +12,7 @@ export default function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
         <thead>
           <tr className="border-b border-bronze/40 font-mono text-sm tracking-widest">
             <th scope="col" className="py-3 pr-4 font-medium text-muted">
-              &nbsp;
+              <span className="sr-only">Aspect</span>
             </th>
             <th scope="col" className="py-3 pr-4 font-medium text-muted">
               STANDARD AGENCY

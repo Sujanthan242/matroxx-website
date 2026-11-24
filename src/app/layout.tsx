@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     description:
       "Matroxx is a founder-led, AI-assisted software studio in Colombo, Sri Lanka.",
+    images: [
+      {
+        alt: `Matroxx — ${SITE_TAGLINE}`,
+        height: 630,
+        url: "https://sujanthan242.github.io/matroxx-website/og.png",
+        width: 1200,
+      },
+    ],
     siteName: "Matroxx",
     title: `Matroxx — ${SITE_TAGLINE}`,
     type: "website",

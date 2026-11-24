@@ -20,9 +20,9 @@ describe("Services page", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(SERVICES_PAGE.sub)).toBeInTheDocument();
 
-    // SectionHeading renders the pillar title as label text inside a <p>
-    // (gradient index span + "— Title"), not as a heading element —
-    // same split as Home (see home.test.tsx).
+    // SectionHeading renders the pillar title as a real <h2>
+    // (gradient index span + "— Title", Branch 7 a11y fix) — the label
+    // text is split for styling, same as Home (see home.test.tsx).
     for (const pillar of PILLARS) {
       expect(screen.getByText(`— ${pillar.title}`)).toBeInTheDocument();
       expect(screen.getByText(pillar.what)).toBeInTheDocument();
@@ -59,7 +59,11 @@ describe("Services page", () => {
   it("renders the 3 settled exclusions in the 'What we don't do' strip", () => {
     render(<Services />);
 
-    // SectionHeading label text, not a heading element (see above).
+    // SectionHeading is a real <h2> (Branch 7 a11y fix): 3 pillar
+    // sections + the "What we don't do" strip + the CTA panel heading.
+    expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(5);
+
+    // SectionHeading label text (see above).
     expect(screen.getByText("— What we don't do")).toBeInTheDocument();
     for (const exclusion of WHAT_WE_DONT_DO) {
       expect(

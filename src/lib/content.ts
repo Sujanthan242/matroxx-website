@@ -417,3 +417,54 @@ export const SECTION_LINKS = {
   services: "All services →",
   work: "All work →",
 };
+
+/**
+ * Contact page + BriefBuilder copy (PRD §3.5, ARCHITECTURE.md §6).
+ * The heading is the approved CTA label ("Start a brief", lib/site.ts)
+ * as a sentence; the sub reuses the approved BRIEF_TEASER body; the
+ * privacy line and the mailto warning are ARCHITECTURE.md §6, verbatim.
+ * Field labels follow the §6 table; the remaining labels are minimal
+ * composed wording, flagged here for Quality Gate to judge. No new
+ * claims, no phone number, no office address.
+ */
+export const CONTACT_PAGE = {
+  budgetContextLabel: "Budget context",
+  budgetHint: "Cohort means the core build is $0 — you cover infrastructure, licences and third-party services at cost.",
+  companyLabel: "Company or entity (optional)",
+  copyLabel: "Copy brief",
+  copiedLabel: "Copied",
+  copyFailedLabel: "Copy didn't work — select the brief text and copy it yourself.",
+  directLabel: "Or write to us directly:",
+  downloadLabel: "Download brief",
+  emailHint: "So Matroxx can reply — your own mail client sends the brief.",
+  emailLabel: "Email",
+  emailSendLabel: "Send via email",
+  heading: "Start a project brief.",
+  mailtoWarning:
+    "This brief is long for an email — use Copy or Download instead",
+  nameLabel: "Your name",
+  previewHeading: "Your brief — check it before you send it",
+  previewLabel: "Assembled project brief",
+  privacy:
+    "Nothing you type is sent or stored — the brief is assembled in your browser.",
+  projectTypeHint: "Choose the closest fit — “Not sure yet” is a real answer.",
+  projectTypeLabel: "Project type",
+  projectTypePlaceholder: "Choose a project type…",
+  scopeHint:
+    "What you want to build, what it should do, and what “done” looks like — 40 to 2000 characters.",
+  scopeLabel: "Scope",
+  sub: BRIEF_TEASER.body,
+  submitLabel: "Assemble my brief",
+};
+
+/**
+ * Branded 404 page (ARCHITECTURE.md §2). The heading is §2, verbatim;
+ * the body and link labels are minimal composed wording, flagged here
+ * for Quality Gate to judge.
+ */
+export const NOT_FOUND_PAGE = {
+  body: "The page you are looking for is not here. It may have moved, or the link may be wrong.",
+  contactLabel: "Contact Matroxx",
+  heading: "This page doesn't exist yet",
+  homeLabel: "Back to Home",
+};

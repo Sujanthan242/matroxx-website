@@ -24,6 +24,7 @@ export default function ServiceDetailSection({
     >
       <Reveal>
         <SectionHeading
+          id={`service-${detail.id}`}
           index={String(index + 1).padStart(2, "0")}
           label={pillar.title}
           description={pillar.what}
