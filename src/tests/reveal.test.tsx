@@ -60,10 +60,10 @@ function removeObserver() {
   });
 }
 
-function intersect() {
+function intersect(entries: { isIntersecting: boolean }[] = [{ isIntersecting: true }]) {
   act(() => {
     observerCallback?.(
-      [{ isIntersecting: true } as IntersectionObserverEntry],
+      entries as IntersectionObserverEntry[],
       {} as IntersectionObserver,
     );
   });
@@ -93,6 +93,16 @@ describe("Reveal", () => {
     expect(wrapper).toHaveClass("mx-reveal");
     expect(wrapper).not.toHaveClass("is-visible");
     intersect();
+    expect(wrapper).toHaveClass("is-visible");
+  });
+
+  it("reveals when any entry in a batch intersects, even if the first leaves", () => {
+    const { container } = render(<Reveal>Batch content</Reveal>);
+    const wrapper = container.firstChild as HTMLElement;
+    // Fast scrolling batches entries: the first can be an element leaving
+    // the viewport while a later one is entering. Only checking entries[0]
+    // would drop the reveal (caught by the e2e scroll test).
+    intersect([{ isIntersecting: false }, { isIntersecting: true }]);
     expect(wrapper).toHaveClass("is-visible");
   });
 

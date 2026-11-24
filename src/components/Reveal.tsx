@@ -48,7 +48,9 @@ export default function Reveal({
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting) {
+        // Check EVERY entry: during fast scrolling several elements can
+        // arrive in one batch, and entries[0] may be one that is leaving.
+        if (entries.some((entry) => entry.isIntersecting)) {
           setVisible(true);
           observer.disconnect();
         }

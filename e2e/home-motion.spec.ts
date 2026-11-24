@@ -24,9 +24,28 @@ test("sections reveal once on scroll and never re-hide", async ({ page }) => {
   // Below-fold sections start hidden (armed by JS after mount).
   expect(await hiddenCount()).toBeGreaterThan(0);
 
-  // Scroll to the bottom: every reveal fires.
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForTimeout(1500);
+  // Scroll through the page the way a visitor does — in small steps, not
+  // one instant jump. (An instant jump can move a short section through
+  // the viewport between two IntersectionObserver samples, so the observer
+  // never reports it. Small steps with a pause give every section several
+  // sampling windows, even when the main thread is busy.)
+  await page.evaluate(async () => {
+    const height = document.body.scrollHeight;
+    for (let y = 0; y <= height; y += 250) {
+      // Instant steps, not the page's smooth scroll: each step pauses the
+      // viewport so the observer samples every section.
+      window.scrollTo({ top: y, behavior: "instant" });
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+  });
+  await page.waitForFunction(
+    () =>
+      [...document.querySelectorAll(".mx-reveal, .mx-reveal-fast")].every(
+        (el) => getComputedStyle(el).opacity !== "0",
+      ),
+    undefined,
+    { timeout: 10_000 },
+  );
   expect(await hiddenCount()).toBe(0);
 
   // Scroll back to the top: nothing re-hides (once: true).
