@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# Test artefacts
+playwright-report/
+test-results/
+coverage/
+
+# Environment / secrets (there are none by design — never add one here)
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Local-only source assets (master logo PNG, team image) — never pushed.
+# The logo ships as a data URI in src/lib/images.ts instead; see README.md.
+assets-src/

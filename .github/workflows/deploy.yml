@@ -1,0 +1,41 @@
+name: Deploy to Production
+
+# Push to main only. Runs in the `production` GitHub Environment with
+# Sujay as required reviewer — the deploy waits for his click, and that
+# click IS sign-off #3. No agent ever has production access.
+# Pages source: "Deploy from a branch", branch gh-pages.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Build and deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (production basePath)
+        run: npm run build
+        env:
+          NEXT_BASE_PATH: /matroxx-website
+
+      - name: Deploy to gh-pages root
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
