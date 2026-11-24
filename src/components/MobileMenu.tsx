@@ -19,7 +19,7 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((value) => !value)}
-        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded border border-slate/60 text-ink"
+        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded border border-slate/60 text-ink transition-colors duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] hover:border-bronze/60"
       >
         <span
           aria-hidden="true"

@@ -1,12 +1,17 @@
 import PhilosophyQuote from "@/components/PhilosophyQuote";
+import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
 /** // 05 — Philosophy: the single quote, no description. */
 export default function PhilosophySection() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <SectionHeading index="05" label="Philosophy" />
-      <PhilosophyQuote />
+    <section className="mx-auto max-w-6xl px-6 py-24 md:py-28">
+      <Reveal>
+        <SectionHeading index="05" label="Philosophy" />
+      </Reveal>
+      <Reveal>
+        <PhilosophyQuote />
+      </Reveal>
     </section>
   );
 }

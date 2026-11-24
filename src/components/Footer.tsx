@@ -14,7 +14,11 @@ export default function Footer() {
     <footer className="border-t border-slate/60 bg-obsidian">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <Link href="/" className="flex items-center gap-3" aria-label="Matroxx — home">
+          <Link
+            href="/"
+            className="flex items-center gap-3 transition-opacity duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] hover:opacity-85"
+            aria-label="Matroxx — home"
+          >
             <Image
               src={LOGO_DATA_URI}
               alt="Matroxx logo"
@@ -37,7 +41,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-sm text-muted transition-colors hover:text-bronze"
+              className="relative self-start font-mono text-sm text-muted transition-colors duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-bronze after:transition-transform after:duration-[var(--dur-fast)] after:ease-[var(--ease-out-expo)] hover:text-bronze hover:after:scale-x-100"
             >
               {link.label}
             </Link>
@@ -47,13 +51,13 @@ export default function Footer() {
         <div className="flex flex-col gap-3">
           <a
             href={SL_TECH_RADAR_URL}
-            className="font-mono text-sm text-muted transition-colors hover:text-bronze"
+            className="relative self-start font-mono text-sm text-muted transition-colors duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-bronze after:transition-transform after:duration-[var(--dur-fast)] after:ease-[var(--ease-out-expo)] hover:text-bronze hover:after:scale-x-100"
           >
             SL Tech Radar — live product
           </a>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="font-mono text-sm text-muted transition-colors hover:text-bronze"
+            className="relative self-start font-mono text-sm text-muted transition-colors duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-bronze after:transition-transform after:duration-[var(--dur-fast)] after:ease-[var(--ease-out-expo)] hover:text-bronze hover:after:scale-x-100"
           >
             {CONTACT_EMAIL}
           </a>

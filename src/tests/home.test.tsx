@@ -15,16 +15,20 @@ describe("Home", () => {
     expect(screen.getAllByRole("link", { name: /Start a project brief/ })).toHaveLength(2);
     expect(screen.getByRole("link", { name: /See the live product/ })).toBeInTheDocument();
 
-    for (const heading of [
-      "// 01 — Services",
-      "// 02 — Where the model differs",
-      "// 03 — The Cohort Model",
-      "// 04 — Work",
-      "// 05 — Philosophy",
-      "// 06 — Project Brief",
+    // The section labels are split for styling (gradient index, spec §5.5),
+    // so assert the two rendered pieces instead of the joined string.
+    // // 06 is the teaser panel label, rendered whole — not a SectionHeading.
+    for (const [index, label] of [
+      ["// 01", "— Services"],
+      ["// 02", "— Where the model differs"],
+      ["// 03", "— The Cohort Model"],
+      ["// 04", "— Work"],
+      ["// 05", "— Philosophy"],
     ]) {
-      expect(screen.getByText(heading)).toBeInTheDocument();
+      expect(screen.getByText(index)).toBeInTheDocument();
+      expect(screen.getByText(label)).toBeInTheDocument();
     }
+    expect(screen.getByText("// 06 — Project Brief")).toBeInTheDocument();
 
     for (const pillar of [
       "Web Application Development",
