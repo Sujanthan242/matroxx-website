@@ -4,8 +4,8 @@ import { SL_TECH_RADAR_URL } from "@/lib/site";
 
 /**
  * SL Tech Radar flagship card. Only verified facts: stack versions and the
- * AI/LLM weekly cost (ARCHITECTURE.md §7). No test-count claim, no
- * "Spring AI", no live-backend claim.
+ * AI/LLM weekly cost (ARCHITECTURE.md §7). No test-count claim, and no
+ * claim about the backend being live.
  */
 export default function CaseStudyCard() {
   return (

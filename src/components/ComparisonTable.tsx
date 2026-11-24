@@ -1,8 +1,8 @@
 import type { ComparisonRow } from "@/lib/content";
 
 /**
- * Two-column comparison table (Standard vs Matroxx). On mobile the rows
- * stack as labelled blocks instead of squeezing into a narrow table.
+ * Two-column comparison table (Standard vs Matroxx). On mobile the table
+ * keeps its 560px minimum width and scrolls horizontally inside its wrapper.
  */
 export default function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
   return (

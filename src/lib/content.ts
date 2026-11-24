@@ -149,4 +149,23 @@ export const BRIEF_TEASER = {
   body: "A few minutes, in plain language: what you want to build, what it should do, and what “done” looks like. No account, no call required to start.",
   cta: "Start a project brief",
   heading: "Have something to build?",
+  label: "// 06 — Project Brief",
+};
+
+/** Section descriptions for Home // 01–04 (ARCHITECTURE.md §7). */
+export const SECTION_DESCRIPTIONS = {
+  cohort:
+    "Matroxx builds the core product for $0. The partner covers infrastructure, licences and third-party services at cost — never marked up. Selection is competitive.",
+  model:
+    "The same work, priced and owned differently — because who pays for what changes what gets built.",
+  services:
+    "Three engineering pillars. One team that builds the product, the AI inside it, and the systems underneath — and stays accountable for all three.",
+  work: "One live product, built the cohort way — and the next two slots, open now.",
+};
+
+/** Link labels for the Home section footers (ARCHITECTURE.md §7). */
+export const SECTION_LINKS = {
+  cohort: "How the cohort works →",
+  services: "All services →",
+  work: "All work →",
 };

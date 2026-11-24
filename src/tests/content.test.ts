@@ -9,6 +9,8 @@ import {
   MODEL_COMPARISON,
   PHILOSOPHY_QUOTE,
   PILLARS,
+  SECTION_DESCRIPTIONS,
+  SECTION_LINKS,
 } from "@/lib/content";
 import {
   CONTACT_EMAIL,
@@ -109,6 +111,8 @@ describe("home content", () => {
       MODEL_COMPARISON,
       PHILOSOPHY_QUOTE,
       PILLARS,
+      SECTION_DESCRIPTIONS,
+      SECTION_LINKS,
     });
     for (const forbidden of [
       "31/31",
