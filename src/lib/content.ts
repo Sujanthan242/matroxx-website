@@ -214,6 +214,37 @@ export const CASE_STUDY = {
   title: "SL Tech Radar",
 };
 
+export type WorkNumber = { label: string; value: string };
+
+/**
+ * Work page — SL Tech Radar full case study (PRD §3.3, ARCHITECTURE.md §2).
+ * Problem / what-was-built / badge note are restatements of approved copy
+ * (CASE_STUDY description, SECTION_DESCRIPTIONS.work, the live product's
+ * header badge) — composed wording, flagged in the Branch 5 report for
+ * Quality Gate to judge. Numbers are the §7 verified values only, and a
+ * test asserts they match CASE_STUDY. The diagram slot stays VISIBLY
+ * EMPTY (ARCHITECTURE.md §14): no diagram is drawn, generated or invented.
+ */
+export const WORK_CASE_STUDY = {
+  badgeNote:
+    "Look for the “by Matroxx” badge in the live product's header.",
+  built: [
+    "A weekly radar of Sri Lanka's tech scene — events, opportunities and news in one place.",
+    "Each item ranked and summarised for students and developers.",
+    "Built the cohort way — the flagship proof of the model.",
+  ],
+  diagramEmpty: "Architecture diagram — coming with the published case study.",
+  diagramNote:
+    "This slot stays empty until a real diagram is published. No sketch, no placeholder diagram.",
+  numbers: [
+    { label: "Frontend", value: "Next.js 16.3.8" },
+    { label: "Backend", value: "Spring Boot 4.0.8" },
+    { label: "AI/LLM cost", value: "about $0.0022 a week" },
+  ],
+  problem:
+    "Sri Lanka's tech events, opportunities and news are scattered — hard to find in one place, and harder to tell which ones matter.",
+};
+
 export type CohortSlot = { id: string; kind: string; description: string };
 
 export const COHORT_SLOTS: CohortSlot[] = [
@@ -269,6 +300,20 @@ export const SERVICES_PAGE = {
     "An honest scope boundary — the work Matroxx does not take on.",
   heading: "Three pillars, built end to end.",
   sub: SECTION_DESCRIPTIONS.services,
+};
+
+/** Work page header + empty state (PRD §3.3, ARCHITECTURE.md §14).
+    The heading is composed from approved phrases only ("One live
+    product", SECTION_DESCRIPTIONS.work; "Two open slots", HERO_STATS)
+    and the empty-state wording restates §14 ("stays visibly empty
+    rather than filled with a plausible fake") — both flagged in the
+    Branch 5 report as composed, not verbatim quotes. */
+export const WORK_PAGE = {
+  emptyBody:
+    "There are no other case studies yet. This space stays empty until real work exists — no invented projects, no placeholder clients.",
+  emptyHeading: "More work, when it exists",
+  heading: "One live product. Two open slots.",
+  sub: SECTION_DESCRIPTIONS.work,
 };
 
 /** Link labels for the Home section footers (ARCHITECTURE.md §7). */

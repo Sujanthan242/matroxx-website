@@ -14,6 +14,8 @@ import {
   SERVICE_DETAILS,
   SERVICES_PAGE,
   WHAT_WE_DONT_DO,
+  WORK_CASE_STUDY,
+  WORK_PAGE,
 } from "@/lib/content";
 import {
   CONTACT_EMAIL,
@@ -119,6 +121,8 @@ describe("home content", () => {
       SERVICE_DETAILS,
       SERVICES_PAGE,
       WHAT_WE_DONT_DO,
+      WORK_CASE_STUDY,
+      WORK_PAGE,
     });
     for (const forbidden of [
       "31/31",
