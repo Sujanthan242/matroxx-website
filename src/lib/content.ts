@@ -316,6 +316,101 @@ export const WORK_PAGE = {
   sub: SECTION_DESCRIPTIONS.work,
 };
 
+export type CohortStep = {
+  id: string;
+  title: string;
+  weeks: string;
+  body: string;
+};
+
+/**
+ * Cohort & Process page — the 6 steps (PRD §3.4, ARCHITECTURE.md §8).
+ * The step order and the week ranges are the approved §8 table, verbatim;
+ * the bodies are plain-language restatements of the §8 "What happens"
+ * column — composed wording, flagged here for Quality Gate to judge.
+ * The case study step is last because it happens only with partner
+ * approval (PRD §3.4, COHORT_COMPARISON "After launch").
+ */
+export const COHORT_STEPS: CohortStep[] = [
+  {
+    body: "You send a project brief. Matroxx replies, and a technical call tests whether the build is a fit.",
+    id: "brief",
+    title: "Brief",
+    weeks: "Week 0–1",
+  },
+  {
+    body: "Fit check, scope lock, and a stack and architecture sketch — the build is agreed before it starts.",
+    id: "selection",
+    title: "Selection + discovery",
+    weeks: "Weeks 1–2",
+  },
+  {
+    body: "Vertical slices, demoed each week, so the partner sees progress as it happens.",
+    id: "build",
+    title: "Build",
+    weeks: "Weeks 3–7",
+  },
+  {
+    body: "Tests, Quality Gate review, a security pass, and documentation.",
+    id: "hardening",
+    title: "Hardening",
+    weeks: "Week 8",
+  },
+  {
+    body: "Deploy, handover, and a short support window.",
+    id: "launch",
+    title: "Launch + handover",
+    weeks: "Week 9",
+  },
+  {
+    body: "Published only with partner approval.",
+    id: "case-study",
+    title: "Case study",
+    weeks: "After launch",
+  },
+];
+
+/**
+ * Cohort & Process page header, cost line and timeline totals
+ * (PRD §3.4, ARCHITECTURE.md §2, §8 — sign-off #2 approved the timeline).
+ * The heading is the PRD §3.4 bullet, verbatim. The timeline totals and
+ * the "typical, not a promise" note are ARCHITECTURE.md §8, verbatim.
+ * The cost line is composed from SECTION_DESCRIPTIONS.cohort and the
+ * COHORT_COMPARISON "Cost" row — flagged here for Quality Gate to judge.
+ */
+export const COHORT_PAGE = {
+  costIntro:
+    "In plain language, no fine print: Matroxx covers the core build. The partner covers infrastructure, licences and third-party services at cost — never marked up.",
+  heading: "How the cohort model works, step by step.",
+  sub: SECTION_DESCRIPTIONS.cohort,
+  timelineNote:
+    "Typical, not a promise — each build's timeline is agreed in writing after discovery.",
+  timelineTotal:
+    "8–9 weeks from selection to launch for a typical build. Small builds: 5–6 weeks. Nothing is promised under 5 weeks.",
+};
+
+/**
+ * "How we work" team section (PRD §7.2, ARCHITECTURE.md §2, §12).
+ * The body is composed from the sign-off #1 decision ("a small
+ * AI-assisted engineering team, founder-led") and the six roles are the
+ * 6-agent team of PRD §9 / ARCHITECTURE.md §12 — flagged here for
+ * Quality Gate to judge. No invented members: roles only, no names.
+ */
+export const COHORT_TEAM = {
+  body: "Matroxx is a small AI-assisted engineering team, founder-led. Six roles build every cohort product — one team, accountable end to end.",
+  caption: "The Matroxx team room — six roles, one build.",
+  heading: "How we work",
+  imageAlt: "The six-agent Matroxx team room",
+  roles: [
+    "Orchestrator",
+    "Product & Architect",
+    "Frontend",
+    "Backend",
+    "Quality Gate",
+    "DevOps",
+  ],
+};
+
 /** Link labels for the Home section footers (ARCHITECTURE.md §7). */
 export const SECTION_LINKS = {
   cohort: "How the cohort works →",
