@@ -35,6 +35,103 @@ export const PILLARS: Pillar[] = [
   },
 ];
 
+export type ServiceDetail = {
+  id: string;
+  included: string[];
+  notIncluded: string[];
+  deliverables: string[];
+  done: string;
+};
+
+/**
+ * Services page — expanded pillar detail (PRD §3.2, ARCHITECTURE.md §2).
+ * Every line below is a restatement of approved copy: the pillar
+ * what/get/tags above, PRD §3.1, or the MODEL_/COHORT_COMPARISON rows.
+ * Nothing new is claimed: no clients, no numbers, no locations.
+ * Two wordings are paraphrase rather than verbatim approved copy and are
+ * flagged in the Branch 4 report for Quality Gate to judge: the AI
+ * "agent with no observability" exclusion, and the WHAT_WE_DONT_DO
+ * bodies (restatements of the settled sign-off #1 exclusions).
+ */
+export const SERVICE_DETAILS: ServiceDetail[] = [
+  {
+    deliverables: [
+      "A working web application, live and usable from day one",
+      "Tests and documentation",
+      "The source, handed over — yours from day one",
+      "Handover and a short support window",
+    ],
+    done: "Done looks like a working product you can use from day one — tested, documented, and handed over with its source.",
+    id: "web-apps",
+    included: [
+      "Designed, built and shipped end to end — from the first screen to deployment",
+      "A working product you can use from day one",
+      "Tested, reviewed and documented",
+      "Handed over with its source — yours from day one",
+    ],
+    notIncluded: [
+      "A marketing-only site — a site with no product behind it",
+      "A fixed-price rescue of a half-built project without a review",
+    ],
+  },
+  {
+    deliverables: [
+      "An agent working on a defined task inside the product",
+      "Observability: a record of what the agent did, and why",
+      "Guardrails and evaluation",
+      "The source and documentation, handed over",
+    ],
+    done: "Done looks like an agent creating measurable value on a defined task — visible through observability, not a chatbot bolted on afterwards.",
+    id: "ai-agents",
+    included: [
+      "Agents woven into a real product, not bolted on afterwards",
+      "Observability — you can see what the agent did, and why",
+      "Built for a defined task, where it creates measurable value",
+      "Guardrails and evaluation around the agent",
+    ],
+    notIncluded: [
+      "A chatbot bolted on afterwards",
+      "An agent with no observability — one you cannot see working",
+    ],
+  },
+  {
+    deliverables: [
+      "APIs, data pipelines or services, built to run quietly for years",
+      "Tests and monitoring",
+      "Documentation, and a system easy to change later",
+      "The source, handed over",
+    ],
+    done: "Done looks like services built to run quietly for years: tested, monitored, and easy to change later.",
+    id: "systems",
+    included: [
+      "REST APIs",
+      "Data pipelines",
+      "Performance-critical services",
+      "Tested, monitored, and easy to change later",
+      "Built to run quietly for years",
+    ],
+    notIncluded: ["A microservices rewrite"],
+  },
+];
+
+export type Exclusion = { title: string; body: string };
+
+/** "What we don't do" — the 3 settled exclusions (sign-off #1, PRD §3.2). */
+export const WHAT_WE_DONT_DO: Exclusion[] = [
+  {
+    body: "We build systems as one coherent whole — we don't rebuild a working system as microservices.",
+    title: "No microservices rewrites",
+  },
+  {
+    body: "A site with no product behind it is not a Matroxx build.",
+    title: "No marketing-only sites",
+  },
+  {
+    body: "A half-built project gets a review first — never a fixed price sight unseen.",
+    title: "No fixed-price rescue of half-built projects without a review",
+  },
+];
+
 export type ComparisonRow = { aspect: string; matroxx: string; standard: string };
 
 export const MODEL_COMPARISON: ComparisonRow[] = [
@@ -161,6 +258,17 @@ export const SECTION_DESCRIPTIONS = {
   services:
     "Three engineering pillars. One team that builds the product, the AI inside it, and the systems underneath — and stays accountable for all three.",
   work: "One live product, built the cohort way — and the next two slots, open now.",
+};
+
+/** Services page header + "What we don't do" intro (PRD §3.2).
+    The heading is composed from approved phrases only ("Three pillars",
+    PRD §3.1; "built end to end", PILLARS "shipped end to end") — flagged
+    in the Branch 4 report as a composed headline, not a verbatim quote. */
+export const SERVICES_PAGE = {
+  dontDoDescription:
+    "An honest scope boundary — the work Matroxx does not take on.",
+  heading: "Three pillars, built end to end.",
+  sub: SECTION_DESCRIPTIONS.services,
 };
 
 /** Link labels for the Home section footers (ARCHITECTURE.md §7). */
