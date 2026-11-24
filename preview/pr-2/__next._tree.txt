@@ -1,6 +1,6 @@
-:HL["/matroxx-website/preview/pr-2/_next/static/chunks/2j23ubhq6ioq5.css","style"]
+:HL["/matroxx-website/preview/pr-2/_next/static/chunks/3kfxn4hfxlxwq.css","style"]
 :HL["/matroxx-website/preview/pr-2/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/matroxx-website/preview/pr-2/_next/static/media/75cb990346c55dc4-s.p.40bho2kviej2o.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/matroxx-website/preview/pr-2/_next/static/media/9a321a2c78eff0b5-s.p.1bkzbscqrt8rl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":128}]]
-0:{"b":"zBkR6-h8_FaKh580_wj_z","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"rx2eTuOHPiP_bCPucSULK","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
