@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/*
+ * Matroxx "Obsidian Editorial" design tokens.
+ * Single source of truth — components use the token names, never raw hex.
+ * See ARCHITECTURE.md §4.
+ */
+@theme {
+  --color-obsidian: #0c0f0e; /* page background */
+  --color-bronze: #c9a97d; /* primary accent */
+  --color-bronze-deep: #a27b50; /* secondary bronze */
+  --color-slate: #49554f; /* supporting dark slate */
+  --color-ink: #ede8df; /* body text on obsidian */
+  --color-muted: #9a968c; /* secondary text on obsidian */
+
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-obsidian);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Visible keyboard focus everywhere — accessibility is a merge blocker. */
+:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+}
