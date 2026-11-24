@@ -1,22 +1,26 @@
+import BriefTeaserSection from "@/components/BriefTeaserSection";
+import CohortSection from "@/components/CohortSection";
+import HeroSection from "@/components/HeroSection";
+import ModelSection from "@/components/ModelSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import PillarsSection from "@/components/PillarsSection";
+import WorkSection from "@/components/WorkSection";
+
 /**
- * Home — bare shell (Branch 1: feature/scaffold).
- * Renders the approved headline and one-line sub only. The full Home
- * sections (hero, pillars, comparison, cohort, flagship, philosophy,
- * brief teaser) are built in Branch 2: feature/home.
+ * Home — the flagship page (PRD §3.1, ARCHITECTURE.md §2).
+ * Composition only: each section lives in its own component, and all copy
+ * comes from lib/content.ts (ARCHITECTURE.md §7).
  */
 export default function Home() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-24">
-      <p className="font-mono text-sm tracking-widest text-bronze">
-        AI &amp; Integration Software — Colombo, Sri Lanka
-      </p>
-      <h1 className="mt-6 max-w-3xl font-display text-5xl font-medium leading-tight text-ink md:text-6xl">
-        Software that thinks. Systems that endure.
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-        Full-stack web apps, AI agents where they create measurable value, and
-        reliable systems beneath.
-      </p>
+    <main>
+      <HeroSection />
+      <PillarsSection />
+      <ModelSection />
+      <CohortSection />
+      <WorkSection />
+      <PhilosophySection />
+      <BriefTeaserSection />
     </main>
   );
 }

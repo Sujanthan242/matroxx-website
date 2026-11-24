@@ -27,3 +27,20 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CTA_LABEL = "Start a brief";
 export const CTA_HREF = "/contact";
+
+// Spline hero scene URL — intentionally UNSET. No scene has been created
+// yet (no browser access in this environment), and the hero must ship with
+// its static fallback and look professional without the scene
+// (ARCHITECTURE.md §5). Set this to the published scene URL when one exists.
+export const SPLINE_SCENE_URL = "";
+
+// Verified stat strip for the hero (ARCHITECTURE.md §7). Counts only —
+// no invented metrics. The $0 figure is the cohort core build, not a price.
+export type HeroStat = { value: string; label: string };
+
+export const HERO_STATS: HeroStat[] = [
+  { label: "core cohort build", value: "$0" },
+  { label: "engineering pillars", value: "3" },
+  { label: "live product", value: "1" },
+  { label: "open cohort slots", value: "2" },
+];

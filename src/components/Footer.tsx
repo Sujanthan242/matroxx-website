@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LOGO_DATA_URI, LOGO_HEIGHT, LOGO_WIDTH } from "@/lib/images";
-import { CONTACT_EMAIL, NAV_LINKS, SITE_NAME, SL_TECH_RADAR_URL } from "@/lib/site";
+import { CONTACT_EMAIL, NAV_LINKS, SITE_NAME, SITE_TAGLINE, SL_TECH_RADAR_URL } from "@/lib/site";
 
 /**
  * Site footer: logo + tagline, nav, location, live-product link, copyright.
@@ -27,7 +27,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-muted">
-            Software that thinks. Systems that endure.
+            {SITE_TAGLINE}
           </p>
           <p className="mt-2 font-mono text-xs text-muted">Colombo, Sri Lanka</p>
         </div>
