@@ -11,6 +11,9 @@ import {
   PILLARS,
   SECTION_DESCRIPTIONS,
   SECTION_LINKS,
+  SERVICE_DETAILS,
+  SERVICES_PAGE,
+  WHAT_WE_DONT_DO,
 } from "@/lib/content";
 import {
   CONTACT_EMAIL,
@@ -113,6 +116,9 @@ describe("home content", () => {
       PILLARS,
       SECTION_DESCRIPTIONS,
       SECTION_LINKS,
+      SERVICE_DETAILS,
+      SERVICES_PAGE,
+      WHAT_WE_DONT_DO,
     });
     for (const forbidden of [
       "31/31",
