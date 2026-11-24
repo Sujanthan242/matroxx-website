@@ -13,7 +13,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate/60 bg-obsidian/95 backdrop-blur">
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3" aria-label="Matroxx — home">
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition-opacity duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] hover:opacity-85"
+          aria-label="Matroxx — home"
+        >
           <Image
             src={LOGO_DATA_URI}
             alt="Matroxx logo"
@@ -32,14 +36,14 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-sm tracking-wide text-muted transition-colors hover:text-bronze"
+              className="relative font-mono text-sm tracking-wide text-muted transition-colors duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-bronze after:transition-transform after:duration-[var(--dur-fast)] after:ease-[var(--ease-out-expo)] hover:text-bronze hover:after:scale-x-100"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href={CTA_HREF}
-            className="rounded bg-bronze px-4 py-2 font-mono text-sm font-semibold text-obsidian transition-colors hover:bg-bronze-deep hover:text-ink"
+            className="mx-shimmer-border rounded bg-bronze px-4 py-2 font-mono text-sm font-semibold text-obsidian transition-all duration-[var(--dur-fast)] ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:bg-bronze-deep hover:text-ink hover:shadow-[0_8px_24px_rgba(201,169,125,0.25)] active:translate-y-0 active:shadow-none"
           >
             {CTA_LABEL}
           </Link>
