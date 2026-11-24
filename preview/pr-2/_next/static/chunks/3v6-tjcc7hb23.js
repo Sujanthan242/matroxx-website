@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,63643,e=>{e.q("/matroxx-website/preview/pr-2/_next/static/media/hana-ui.027mw010ou1eb.wasm")}]);

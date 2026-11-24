@@ -1,0 +1,19 @@
+2:"$Sreact.fragment"
+3:"/matroxx-website/preview/pr-1/_next/static/chunks/3qfy96eoyh-ek.js"
+4:"/matroxx-website/preview/pr-1/_next/static/chunks/1_0u7vrciyt6s.js"
+5:I[97367,["$3","$4"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:"ViewportBoundary"
+b:I[97367,["$3","$4"],"$a"]
+c:"MetadataBoundary"
+d:I[97367,["$3","$4"],"$c"]
+9:X
+1:[["children",{"s":"__PAGE__","h":128,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"className":"mx-auto max-w-6xl px-6 py-24","children":[["$","p",null,{"className":"font-mono text-sm tracking-widest text-bronze","children":"AI & Integration Software — Colombo, Sri Lanka"}],["$","h1",null,{"className":"mt-6 max-w-3xl font-display text-5xl font-medium leading-tight text-ink md:text-6xl","children":"Software that thinks. Systems that endure."}],["$","p",null,{"className":"mt-6 max-w-2xl text-lg leading-relaxed text-muted","children":"Full-stack web apps, AI agents where they create measurable value, and reliable systems beneath."}]]}],null,["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"p":"$@8","v":null,"s":"$9"}}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$Ld",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Matroxx — Software that thinks. Systems that endure."}],["$","meta","1",{"name":"description","content":"Matroxx is a founder-led, AI-assisted software studio in Colombo, Sri Lanka. Full-stack web apps, AI agent integration, and system-level software — built to endure."}],["$","meta","2",{"property":"og:title","content":"Matroxx — Software that thinks. Systems that endure."}],["$","meta","3",{"property":"og:description","content":"Matroxx is a founder-led, AI-assisted software studio in Colombo, Sri Lanka."}],["$","meta","4",{"property":"og:site_name","content":"Matroxx"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"Matroxx — Software that thinks. Systems that endure."}],["$","meta","8",{"name":"twitter:description","content":"Matroxx is a founder-led, AI-assisted software studio in Colombo, Sri Lanka."}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@e","v":null,"s":"$9"}},"a":"$@f","u":"$@10","b":"EHKSwz6rY93rCQhuDFy5j"}
+7:null
+10:true
+9:300
+9:C
+f:0
+e:"$undefined"
+8:"$undefined"

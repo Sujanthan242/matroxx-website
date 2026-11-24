@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,42634,e=>{e.q("/matroxx-website/preview/pr-2/_next/static/media/physics.0z89av5o-2_-3.wasm")}]);
