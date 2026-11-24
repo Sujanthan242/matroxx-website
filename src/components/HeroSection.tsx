@@ -5,8 +5,10 @@ import StatStrip from "@/components/StatStrip";
 import { HERO } from "@/lib/content";
 import { SL_TECH_RADAR_URL } from "@/lib/site";
 
-/** Fixed hero entrance order (spec §2.4): eyebrow 0ms, headline lines
-    120/240ms, sub 360ms, CTAs 480ms, stats 600ms, scroll cue 900ms. */
+/** Fixed hero entrance order (spec §2.4, as amended 2026-11-24): eyebrow
+    0ms, sub 360ms, CTAs 480ms, stats 600ms, scroll cue 900ms. The
+    headline is intentionally STATIC (no entrance animation) — any
+    animation on the LCP element delays Lantern-simulated LCP to ~7.5s. */
 const entrance = (delay: number): CSSProperties => ({
   animation: "mx-fade-up var(--dur-slow) var(--ease-out-expo) both",
   animationDelay: `${delay}ms`,
@@ -26,13 +28,12 @@ export default function HeroSection() {
         </p>
         <h1 className="mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.05] text-ink md:text-7xl">
           {/* Rendering split of HERO.headline only — the copy is unchanged:
-              "Software that thinks." / "Systems that endure." */}
-          <span className="block" style={entrance(120)}>
-            Software that thinks.
-          </span>
-          <span className="mx-gradient-text block" style={entrance(240)}>
-            Systems that endure.
-          </span>
+              "Software that thinks." / "Systems that endure."
+              Headline is intentionally static (no entrance animation):
+              ANY animation on the LCP element delays Lantern-simulated
+              LCP to ~7.5s; a static headline restores it. Content-first. */}
+          <span className="block">Software that thinks.</span>
+          <span className="mx-gradient-text block">Systems that endure.</span>
         </h1>
         <p
           className="mt-6 max-w-2xl text-lg leading-relaxed text-muted"
