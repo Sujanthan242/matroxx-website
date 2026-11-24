@@ -3,7 +3,10 @@ import {
   BRIEF_TEASER,
   CASE_STUDY,
   COHORT_COMPARISON,
+  COHORT_PAGE,
   COHORT_SLOTS,
+  COHORT_STEPS,
+  COHORT_TEAM,
   COHORT_TENETS,
   HERO,
   MODEL_COMPARISON,
@@ -80,6 +83,22 @@ describe("home content", () => {
     }
   });
 
+  it("has 6 cohort steps and a complete team section, all non-empty", () => {
+    expect(COHORT_STEPS).toHaveLength(6);
+    for (const step of COHORT_STEPS) {
+      expect(noEmpty(step.title)).toBe(true);
+      expect(noEmpty(step.weeks)).toBe(true);
+      expect(noEmpty(step.body)).toBe(true);
+    }
+    expect(COHORT_TEAM.roles).toHaveLength(6);
+    for (const role of COHORT_TEAM.roles) expect(noEmpty(role)).toBe(true);
+    expect(noEmpty(COHORT_PAGE.heading)).toBe(true);
+    expect(noEmpty(COHORT_PAGE.timelineTotal)).toBe(true);
+    expect(noEmpty(COHORT_PAGE.timelineNote)).toBe(true);
+    expect(noEmpty(COHORT_TEAM.body)).toBe(true);
+    expect(noEmpty(COHORT_TEAM.imageAlt)).toBe(true);
+  });
+
   it("has 2 cohort slots described as briefs-in-waiting", () => {
     expect(COHORT_SLOTS).toHaveLength(2);
     for (const slot of COHORT_SLOTS) {
@@ -110,7 +129,10 @@ describe("home content", () => {
       BRIEF_TEASER,
       CASE_STUDY,
       COHORT_COMPARISON,
+      COHORT_PAGE,
       COHORT_SLOTS,
+      COHORT_STEPS,
+      COHORT_TEAM,
       COHORT_TENETS,
       HERO,
       MODEL_COMPARISON,
