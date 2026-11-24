@@ -11,6 +11,9 @@ const MESH_BACKGROUND =
   "radial-gradient(ellipse 50% 40% at 20% 80%, rgba(162,123,80,0.10), transparent 65%), " +
   "radial-gradient(ellipse at center, rgba(201,169,125,0.08), transparent 65%)";
 
+const GRID_MASK =
+  "radial-gradient(ellipse at center, black 30%, transparent 75%)";
+
 /**
  * Hero layer. The Spline scene loads lazily, only when a scene URL is set
  * and the visitor is on a desktop-width screen without reduced motion.
@@ -76,72 +79,113 @@ export default function SplineHero() {
       aria-hidden="true"
       className="absolute inset-0 overflow-hidden"
     >
-      {/* Layer 1 — animated bronze gradient mesh on obsidian. */}
+      <MeshLayer anim={anim} />
+      <GridLayer />
+      <OrbsLayer anim={anim} />
+      <RingsLayer anim={anim} />
+      <PulseLayer anim={anim} />
+    </div>
+  );
+}
+
+/** Layer 1 — animated bronze gradient mesh on obsidian. */
+function MeshLayer({ anim }: { anim: boolean }) {
+  return (
+    <div
+      className={anim ? "mx-fade-in mx-gradient-shift absolute inset-0" : "absolute inset-0"}
+      style={{ backgroundImage: MESH_BACKGROUND }}
+    />
+  );
+}
+
+/** Layer 2 — faint 64px grid, masked to fade at the edges. Desktop only. */
+function GridLayer() {
+  return (
+    <div
+      className="mx-grid-bg absolute inset-0 hidden md:block"
+      style={{ maskImage: GRID_MASK, WebkitMaskImage: GRID_MASK }}
+    />
+  );
+}
+
+/** Layer 3 — two drifting blurred orbs, out of phase. Desktop only. */
+function OrbsLayer({ anim }: { anim: boolean }) {
+  const drift = anim ? "mx-drift will-change-transform" : "";
+  return (
+    <div
+      className="absolute inset-0 hidden transition-transform duration-[600ms] ease-[var(--ease-in-out-soft)] md:block"
+      style={{
+        transform:
+          "translate3d(var(--mx-orb-x, 0px), var(--mx-orb-y, 0px), 0)",
+      }}
+    >
       <div
-        className={anim ? "mx-fade-in mx-gradient-shift absolute inset-0" : "absolute inset-0"}
-        style={{ backgroundImage: MESH_BACKGROUND }}
+        className={`absolute right-[8%] top-[10%] h-72 w-72 rounded-full bg-[rgba(201,169,125,0.16)] blur-3xl ${drift}`}
       />
-      {/* Layer 2 — faint 64px grid, masked to fade at the edges. Desktop only. */}
       <div
-        className="mx-grid-bg absolute inset-0 hidden md:block"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-        }}
-      />
-      {/* Layer 3 — two drifting blurred orbs, out of phase. Desktop only. */}
-      <div
-        className="absolute inset-0 hidden transition-transform duration-[600ms] ease-[var(--ease-in-out-soft)] md:block"
-        style={{
-          transform:
-            "translate3d(var(--mx-orb-x, 0px), var(--mx-orb-y, 0px), 0)",
-        }}
-      >
-        <div
-          className={`absolute right-[8%] top-[10%] h-72 w-72 rounded-full bg-[rgba(201,169,125,0.16)] blur-3xl ${anim ? "mx-drift will-change-transform" : ""}`}
-        />
-        <div
-          className={`absolute bottom-[5%] left-[10%] h-56 w-56 rounded-full bg-[rgba(162,123,80,0.12)] blur-3xl ${anim ? "mx-drift will-change-transform" : ""}`}
-          style={anim ? { animationDelay: "-9s" } : undefined}
-        />
-      </div>
-      {/* Layer 4 — three concentric rings. Each ring is a centred wrapper
-          plus a spinning inner, so the rotation never fights the centring
-          translate (spec §1.5). The dots make the rotation visible. */}
-      <div
-        className="absolute inset-0 transition-transform duration-[600ms] ease-[var(--ease-in-out-soft)]"
-        style={{
-          transform:
-            "translate3d(var(--mx-ring-x, 0px), var(--mx-ring-y, 0px), 0)",
-        }}
-      >
-        <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2">
-          <div
-            className={`relative h-full w-full rounded-full border border-bronze/20 ${anim ? "mx-spin-slow will-change-transform" : ""}`}
-          >
-            <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze" />
-          </div>
-        </div>
-        <div className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2">
-          <div
-            className={`relative h-full w-full rounded-full border border-bronze/30 ${anim ? "mx-spin-slow-rev will-change-transform" : ""}`}
-          >
-            <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze" />
-          </div>
-        </div>
-        <div className="absolute left-1/2 top-1/2 h-[14rem] w-[14rem] -translate-x-1/2 -translate-y-1/2">
-          <div
-            className={`relative h-full w-full rounded-full border border-bronze/40 ${anim ? "mx-spin-slower will-change-transform" : ""}`}
-          />
-        </div>
-      </div>
-      {/* Layer 5 — centre pulse ring, slow breathing glow. */}
-      <div
-        className={`absolute left-1/2 top-1/2 h-[14rem] w-[14rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-bronze/25 ${anim ? "mx-pulse-ring" : ""}`}
+        className={`absolute bottom-[5%] left-[10%] h-56 w-56 rounded-full bg-[rgba(162,123,80,0.12)] blur-3xl ${drift}`}
+        style={anim ? { animationDelay: "-9s" } : undefined}
       />
     </div>
+  );
+}
+
+/**
+ * Layer 4 — three concentric rings. Each ring is a centred wrapper plus a
+ * spinning inner, so the rotation never fights the centring translate
+ * (spec §1.5). The dots make the rotation visible.
+ */
+function RingsLayer({ anim }: { anim: boolean }) {
+  return (
+    <div
+      className="absolute inset-0 transition-transform duration-[600ms] ease-[var(--ease-in-out-soft)]"
+      style={{
+        transform:
+          "translate3d(var(--mx-ring-x, 0px), var(--mx-ring-y, 0px), 0)",
+      }}
+    >
+      <Ring anim={anim} size="h-[34rem] w-[34rem]" border="border-bronze/20" spin="mx-spin-slow" dot />
+      <Ring anim={anim} size="h-[24rem] w-[24rem]" border="border-bronze/30" spin="mx-spin-slow-rev" dot />
+      <Ring anim={anim} size="h-[14rem] w-[14rem]" border="border-bronze/40" spin="mx-spin-slower" dot={false} />
+    </div>
+  );
+}
+
+/** One ring: centred wrapper + spinning inner + optional circumference dot. */
+function Ring({
+  anim,
+  border,
+  dot,
+  size,
+  spin,
+}: {
+  anim: boolean;
+  border: string;
+  dot: boolean;
+  size: string;
+  spin: string;
+}) {
+  return (
+    <div
+      className={`absolute left-1/2 top-1/2 ${size} -translate-x-1/2 -translate-y-1/2`}
+    >
+      <div
+        className={`relative h-full w-full rounded-full border ${border} ${anim ? `${spin} will-change-transform` : ""}`}
+      >
+        {dot ? (
+          <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze" />
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/** Layer 5 — centre pulse ring, slow breathing glow. */
+function PulseLayer({ anim }: { anim: boolean }) {
+  return (
+    <div
+      className={`absolute left-1/2 top-1/2 h-[14rem] w-[14rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-bronze/25 ${anim ? "mx-pulse-ring" : ""}`}
+    />
   );
 }
 
